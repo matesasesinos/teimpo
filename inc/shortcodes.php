@@ -94,3 +94,10 @@ function cloud_tags() {
 }
 
 add_shortcode('cloud', 'cloud_tags');
+
+function testgraph(){
+    $graph = OpenGraph::fetch('https://www.instagram.com/p/B-FX76dAFOO/');
+    return $graph->image.'<br> '.$graph->title.' <br> '. utf8_decode($graph->description);
+}
+
+add_shortcode('test', 'testgraph');
