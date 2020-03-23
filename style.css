@@ -233,6 +233,51 @@ span.social-footer a.twt-social {
 span.social-footer a.ws-social {
     color:#25d366;
 }
+
+/* actualizacion*/
+.nota-title-feed {
+    color: #5a9cd8;
+    line-height: 21px;
+    
+    font-family: Lato;
+    font-size: 20px;
+    font-weight: 800;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.nota-description-feed {
+    margin-top: 10px;
+    font-size: 0.95em;
+    line-height: 16px;
+    font-weight: 100;
+    margin-bottom: 10px;
+}
+
+a.tag-term {
+    display: inline;
+    padding: 2px 5px;
+    border-radius: 3px;
+    background-color: grey;
+    color: white;
+    margin-top: 2px;
+    line-height: 20px;
+}
+@media (min-width: 992px){
+    div#contenido_title h3 {
+        padding: 0;
+        margin-top: 20px;
+        margin-bottom: 20px;
+    }
+    
+    h5.temas{
+       margin-top: 0;
+        padding: 0;
+        margin: 0;
+        font-weight: 100;
+    }
+}
+/* actualizacion*/
 /* productos */
 #tiendita{
     padding-top: 0px !important;
