@@ -1,0 +1,286 @@
+/*
+ Theme Name:     Fluo
+ Theme URI:      https://genosha.com.ar
+ Description:    Fluo Theme
+ Author:         Elegant Themes
+ Author URI:     https://genosha.com.ar
+ Template:       Divi
+ Version:        1.0.0
+*/
+
+/* =Theme customization starts here
+------------------------------------------------------- */
+
+@font-face {
+    font-family: 'GloriolaStd';
+    src: url('fonts/GloriolaStd.eot?#iefix') format('embedded-opentype'), url('fonts/GloriolaStd.woff') format('woff'), url('fonts/GloriolaStd.ttf') format('truetype'), url('fonts/GloriolaStd.svg#GloriolaStd') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'GloriolaStd-Bold';
+    src: url('fonts/GloriolaStd-Bold.eot?#iefix') format('embedded-opentype'), url('fonts/GloriolaStd-Bold.woff') format('woff'), url('fonts/GloriolaStd-Bold.ttf') format('truetype'), url('fonts/GloriolaStd-Bold.svg#GloriolaStd-Bold') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Nunito-Bold';
+    src: url('fonts/Nunito-Bold.eot?#iefix') format('embedded-opentype'), url('fonts/Nunito-Bold.woff') format('woff'), url('fonts/Nunito-Bold.ttf') format('truetype'), url('fonts/Nunito-Bold.svg#Nunito-Bold') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+body {
+    color: #000;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 1.428571429;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-weight: 900;
+    color: #5a9cd8;
+}
+h1{
+    font-size: 36px;
+}
+/* menu */
+#main-header{
+    background-color: white !important;
+}
+
+#top-menu-nav a{
+    text-transform: uppercase !important;
+    color: #5a9cd8 !important;
+    letter-spacing: 2px !important;
+    font-size: 18px !important;
+}
+.et-fixed-header #top-menu-nav a{
+    color: #5a9cd8 !important;
+}
+#main-footer {
+    background-color: black;
+}
+/* slide */
+
+#slide-home .et_pb_more_button {
+    background-color: white;
+    border: 2px solid white;
+    color: #5a9cd8;
+    letter-spacing: 2px;
+    word-spacing: normal;
+    text-transform: uppercase;
+    font-weight: bold;
+    border-radius: 99px;
+    font-size: .8rem;
+}
+
+/* home */
+#noticias{
+    padding-top: 0px !important;
+    margin-top: 0px !important;
+}
+
+/* notas */
+#contenido_title h1{
+    display:block;
+    text-align: center;
+    padding: 2% 0 1% 0;
+}
+#contenido_title h3{
+    font-weight: bold;
+}
+#contenido_title p.bajada{
+    padding-bottom: 2rem;
+}
+div#notas {
+    padding: 0 1%;
+    /* height: auto;
+    overflow: hidden;
+    margin-bottom: 2%; */
+}
+.nota-feed{
+    border: 1px solid #e1e8ed;
+    -webkit-box-shadow: 0px 3px 12px 1px rgba(0,0,0,0.1);
+    box-shadow: 0px 3px 12px 1px rgba(0,0,0,0.1);
+    background-color: #fff;
+    border-radius: 6px;
+    -webkit-transition: all 0.3s ease;
+    transition: all 0.3s ease;
+    margin-bottom: 1%;
+    padding: 1.5% 1.5% 1% 1.5%;
+}
+.nota-img-feed{
+    max-width: 100%;
+    height: auto;
+}
+.nota-title-feed{
+    color: #5a9cd8;
+    line-height: 26px;
+    font-size: 20px;
+    font-weight: 900;
+}
+.nota-description-feed {
+    padding: 5% 0px;
+}
+.nota-footer{
+    border-radius: 0px 0px 6px 6px;
+    border-top: 1px solid #dfe4e7;
+    background: #FFF;
+    text-transform: uppercase;
+    font-size: 10px;
+    padding-top: 13px;
+}
+.feed-twitter .twitter-tweet{
+    margin-top: 0 !important;
+    margin-bottom: 0 !important;
+}
+.grid-item.nota-feed.feed-twitter {
+    padding: 0;
+    border: none;
+}
+.grid-item.nota-feed.feed-twitter .nota-footer{
+    padding: 3% 4%;
+    height: auto;
+    overflow: hidden
+}
+div#cargar_mas a {
+    background: #007bff;
+    color: white;
+    border-color: #007bff;
+    text-decoration: none;
+    border-radius: 24px;
+    padding: 10px 15px;
+    text-transform: uppercase;
+}
+div#cargar_mas a:hover{
+    background-color: #0069d9;
+    border-color: #0062cc;
+}
+span.tags {
+    text-align: center;
+}
+span.tags ul li {
+    display: inline;
+    list-style: none;
+}
+span.tags ul li a{
+    color: #5a9cd8;
+}
+span.tags-f{
+    display: inline;
+    float: left;
+}
+a.tag-term{
+    display: inline;
+    padding: 2px 5px;
+    border-radius: 3px;
+    background-color: grey;
+    color: white;
+}
+a.fuente-footer {
+    display: inline;
+    float: right;
+    color: white;
+    padding: 2px 5px;
+    border-radius: 3px;
+}
+a.fuente-footer.youtube{
+    background-color: #FF0000;
+}
+a.fuente-footer.twitter{
+    background-color: #00acee;
+}
+a.fuente-footer.facebook{
+    background-color: #39569c;
+}
+a.fuente-footer.instagram{
+    background-color: #8a3ab9;
+}
+a.fuente-footer.tiempo{
+    background-color: #007bff;
+}
+a.fuente-footer.otra{
+    background-color: black;
+}
+/* productos */
+#tiendita{
+    padding-top: 0px !important;
+    padding-bottom: 0px !important;
+}
+.products-home .slick-dots{
+    bottom:-21% !important
+}
+.products-home .slick-dots li.slick-active button:before {
+    opacity: 1;
+    color: #252525;
+}
+.producto{
+    text-align: center;
+}
+.producto img{
+    max-width: 100%;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    margin-bottom: 2%;
+}
+
+.producto a.btn.btn-comprar{
+    display: block;
+    width: 100%;
+    background-color: white;
+    border: 1px solid black;
+    color: #5a9cd8;
+    letter-spacing: 2px;
+    word-spacing: normal;
+    text-transform: uppercase;
+    font-weight: bold;
+    border-radius: 24px;
+    padding: 10px 15px;
+    font-size: 1rem;
+    transition: all ease-out 0.4s;
+}
+
+.producto a.btn.btn-comprar:hover{
+    background: #5a9cd8;
+    color: white;
+    border-color: #5a9cd8;
+    text-decoration: none;
+}
+
+/* footer */
+#footer-widgets {
+    padding: 4% 0 0;
+}
+.et_pb_gutters3 .footer-widget{
+    margin-bottom: 2%;
+}
+div#media_image-3 img {
+    max-width: 150px !important;
+}
+div#media_image-4, div#media_image-5, div#media_image-6{
+    float: right !important
+}
+div#media_image-4 img, div#media_image-5 img, div#media_image-6 img {
+    max-width: 51px !important;
+    padding-left: 28% !important;
+}
+div#footer-bottom {
+    display: none;
+}
+
+div#custom_html-2 {
+    text-align: right !important;
+    width: 100%;
+}
+
+div#custom_html-2 a{
+    display: inline-block;
+    color:#5a9cd8 !important;
+    font-size: 18px !important;
+    margin-left: 2%;
+    margin-top: 1%;
+}
+
