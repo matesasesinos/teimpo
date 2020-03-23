@@ -94,6 +94,13 @@
 			masonryUpdate();
 			e.preventDefault();
 		});
+
+		$('a.tag-term').click(function(e){
+			var selectSize = $(this).text();
+			filter(selectSize);
+			masonryUpdate();
+			e.preventDefault();
+		});
 		
 		function filter(e) {
 			var regex = new RegExp('\\b' + e + '\\b');
