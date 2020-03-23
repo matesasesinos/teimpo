@@ -10,27 +10,7 @@
 
 /* =Theme customization starts here
 ------------------------------------------------------- */
-
-@font-face {
-    font-family: 'GloriolaStd';
-    src: url('fonts/GloriolaStd.eot?#iefix') format('embedded-opentype'), url('fonts/GloriolaStd.woff') format('woff'), url('fonts/GloriolaStd.ttf') format('truetype'), url('fonts/GloriolaStd.svg#GloriolaStd') format('svg');
-    font-weight: normal;
-    font-style: normal;
-}
-
-@font-face {
-    font-family: 'GloriolaStd-Bold';
-    src: url('fonts/GloriolaStd-Bold.eot?#iefix') format('embedded-opentype'), url('fonts/GloriolaStd-Bold.woff') format('woff'), url('fonts/GloriolaStd-Bold.ttf') format('truetype'), url('fonts/GloriolaStd-Bold.svg#GloriolaStd-Bold') format('svg');
-    font-weight: normal;
-    font-style: normal;
-}
-
-@font-face {
-    font-family: 'Nunito-Bold';
-    src: url('fonts/Nunito-Bold.eot?#iefix') format('embedded-opentype'), url('fonts/Nunito-Bold.woff') format('woff'), url('fonts/Nunito-Bold.ttf') format('truetype'), url('fonts/Nunito-Bold.svg#Nunito-Bold') format('svg');
-    font-weight: normal;
-    font-style: normal;
-}
+@import url('https://fonts.googleapis.com/css?family=Lato:400,400i,700,700i,900&display=swap');
 
 body {
     color: #000;
