@@ -28,9 +28,16 @@ function create_feed_post($post_id)
 
 	if (isset($_POST['acf']['field_5e750ea627d22'])) {
 		$graph = OpenGraph::fetch($url);
+
+		$urlfix = parse_url($url,,PHP_URL_HOST);
 		update_field('imagen_nota', $graph->image, $post_id);
-		update_field('titulo_nota', $graph->title, $post_id);
-		update_field('descripcion', $graph->description, $post_id);
+		if($urlfix == 'www.instagram.com') {
+			update_field('titulo_nota', $graph->title, $post_id);
+			update_field('descripcion', $graph->description, $post_id);
+		} else {
+			update_field('titulo_nota', utf8_decode($graph->title), $post_id);
+			update_field('descripcion', utf8_decode($graph->description), $post_id);
+		}
 		
 	}
 }
