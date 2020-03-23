@@ -133,14 +133,21 @@ div#notas {
     max-width: 100%;
     height: auto;
 }
-.nota-title-feed{
+.nota-title-feed {
     color: #5a9cd8;
-    line-height: 26px;
+    line-height: 21px;
+    font-family: Lato;
     font-size: 20px;
-    font-weight: 900;
+    font-weight: 800;
+    margin-top: 10px;
+    margin-bottom: 10px;
 }
 .nota-description-feed {
-    padding: 5% 0px;
+    margin-top: 10px;
+    font-size: 0.95em;
+    line-height: 16px;
+    font-weight: 100;
+    margin-bottom: 10px;
 }
 .nota-footer{
     border-radius: 0px 0px 6px 6px;
@@ -196,6 +203,8 @@ a.tag-term{
     border-radius: 3px;
     background-color: grey;
     color: white;
+    margin-top: 2px;
+    line-height: 20px;
 }
 a.fuente-footer {
     display: inline-block;
@@ -245,51 +254,6 @@ span.social-footer a.twt-social {
 span.social-footer a.ws-social {
     color:#25d366;
 }
-
-/* actualizacion*/
-.nota-title-feed {
-    color: #5a9cd8;
-    line-height: 21px;
-    
-    font-family: Lato;
-    font-size: 20px;
-    font-weight: 800;
-    margin-top: 10px;
-    margin-bottom: 10px;
-}
-
-.nota-description-feed {
-    margin-top: 10px;
-    font-size: 0.95em;
-    line-height: 16px;
-    font-weight: 100;
-    margin-bottom: 10px;
-}
-
-a.tag-term {
-    display: inline;
-    padding: 2px 5px;
-    border-radius: 3px;
-    background-color: grey;
-    color: white;
-    margin-top: 2px;
-    line-height: 20px;
-}
-@media (min-width: 992px){
-    div#contenido_title h3 {
-        padding: 0;
-        margin-top: 20px;
-        margin-bottom: 20px;
-    }
-    
-    h5.temas{
-       margin-top: 0;
-        padding: 0;
-        margin: 0;
-        font-weight: 100;
-    }
-}
-/* actualizacion*/
 /* productos */
 #tiendita{
     padding-top: 0px !important;
