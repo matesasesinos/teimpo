@@ -132,6 +132,9 @@ div#notas {
     font-weight: 100;
     margin-bottom: 10px;
 }
+.nota-description-feed a {
+    color: black;
+}
 .nota-footer{
     border-radius: 0px 0px 6px 6px;
     border-top: 1px solid #dfe4e7;

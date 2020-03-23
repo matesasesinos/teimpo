@@ -27,12 +27,12 @@ function feed_function()
                 if ($url2 === 'www.youtube.com') {
                     $content .= embed($url);
                 } else {
-                    $content .=  '<img src="' . get_field('imagen_nota', $post->ID) . '"/>';
+                    $content .=  '<a href="'.$url.'" target="_blank"><img src="' . get_field('imagen_nota', $post->ID) . '"/></a>';
                 }
 
                 $content .=  '</div>';
-                $content .=  '<div class="nota-title-feed">' . get_field('titulo_nota', $post->ID) . '</div>';
-                $content .=  '<div class="nota-description-feed">' . get_field('descripcion', $post->ID) . '</div>';
+                $content .=  '<div class="nota-title-feed"><a href="'.$url.'" target="_blank">' . get_field('titulo_nota', $post->ID) . '</a></div>';
+                $content .=  '<div class="nota-description-feed"><a href="'.$url.'" target="_blank">' . get_field('descripcion', $post->ID) . '</a></div>';
                 $content .=  '<div class="terms nota-footer">';
                 $content .=  '<span class="tags-f">';
                 foreach ($terms as $t) {
