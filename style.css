@@ -73,6 +73,9 @@ div#contenido_title {
     padding-bottom: 20px;
     color: white;
 }
+div#title_site h4{
+    font-weight: lighter;
+}
 div#contenido_title h3, div#contenido_title h4, div#contenido_title p{
     color: white;
 }
