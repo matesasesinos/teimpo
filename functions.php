@@ -41,3 +41,9 @@ add_action( 'admin_enqueue_scripts', 'load_admin_styles' );
 function load_admin_styles() {
   wp_enqueue_style( 'admin_css', get_stylesheet_directory_uri() . '/css/admin.css', false, '1.0.0' );
 }  
+
+
+function add_footer_text_function() {
+    echo '<a href="#" target="_blank" id="seamos-socios">seamos socios</a>';
+}
+add_action( 'wp_footer', 'add_footer_text_function');
