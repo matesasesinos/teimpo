@@ -97,7 +97,7 @@
 		
 		function filter(e) {
 			var regex = new RegExp('\\b' + e + '\\b');
-				console.log('test', regex)
+				console.log('test', regex);
 			$('.nota-feed').hide().filter(function () {
 				console.log($(this).data('filter'), regex.test($(this).data('filter')))
 				return regex.test($(this).data('filter'));

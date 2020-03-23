@@ -18,8 +18,10 @@ function feed_function()
             $twitter = get_field('twitter_url', $post->ID);
             if (empty($twitter)) {
                 $content .=  '<div class="nota-feed grid-item" data-filter="'.$filter.'">';
-                if ($fuente) {
+                if ($fuente && $fuente !== 'tiempo') {
                     $content .=  '<a href="' . $url . '" target="_blank" class="fuente-footer ' . $fuente . '">' . $fuente . '</a>';
+                } else {
+                    $content .=  '<a href="' . $url . '" target="_blank" class="fuente-footer"><img src="'.get_stylesheet_directory_uri().'/img/image.png" class="tiempo-logo-fuente" /></a>';
                 }
                 $content .=  '<div class="nota-img-feed">';
                 if ($url2 === 'www.youtube.com') {
@@ -64,6 +66,7 @@ function feed_function()
                 $content .=  '</div>';
                 $content .=  '</div>';
             }
+            
         }
         $content .=  '</div>';
     } else {
