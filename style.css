@@ -30,7 +30,9 @@ h1{
 #main-header{
     background-color: white !important;
 }
-
+.et-pb-arrow-next, .et-pb-arrow-prev{
+    color: #5a9cd8 !important;
+}
 #top-menu-nav a{
     text-transform: uppercase !important;
     color: #5a9cd8 !important;
