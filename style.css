@@ -84,6 +84,18 @@ h1{
 }
 
 /* notas */
+div#contenido_title {
+    margin: 0;
+    padding: 0;
+    margin-bottom: 20px;
+    background: #5a9cd8;
+    padding-top: 10px;
+    padding-bottom: 20px;
+    color: white;
+}
+div#contenido_title h3, div#contenido_title h4, div#contenido_title p{
+    color: white;
+}
 #contenido_title h1{
     display:block;
     text-align: center;
@@ -172,7 +184,7 @@ span.tags ul li {
     list-style: none;
 }
 span.tags ul li a{
-    color: #5a9cd8;
+    color: #fff;
 }
 span.tags-f{
     display: inline;
