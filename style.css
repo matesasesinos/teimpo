@@ -110,7 +110,7 @@ div#notas {
     -webkit-transition: all 0.3s ease;
     transition: all 0.3s ease;
     margin-bottom: 1%;
-    padding: 1.5% 1.5% 1% 1.5%;
+    padding: 1.2% 1.5% 1% 1.5%;
 }
 .nota-img-feed{
     max-width: 100%;
@@ -138,7 +138,7 @@ div#notas {
     margin-bottom: 0 !important;
 }
 .grid-item.nota-feed.feed-twitter {
-    padding: 0;
+    padding: 1.2% 1.5%;
     border: none;
 }
 .grid-item.nota-feed.feed-twitter .nota-footer{
@@ -181,11 +181,13 @@ a.tag-term{
     color: white;
 }
 a.fuente-footer {
-    display: inline;
-    float: right;
+    display: inline-block;
+    margin-bottom: 2%;
     color: white;
     padding: 2px 5px;
     border-radius: 3px;
+    text-transform: uppercase;
+    font-size: 10px;
 }
 a.fuente-footer.youtube{
     background-color: #FF0000;
@@ -204,6 +206,24 @@ a.fuente-footer.tiempo{
 }
 a.fuente-footer.otra{
     background-color: black;
+}
+span.social-footer {
+    display: inline-block;
+    text-align: right;
+    float: right;
+    font-size: 13px;
+}
+span.social-footer a {
+    display: inline-block;
+}
+span.social-footer a.face-social {
+    color: #3b5998;
+}
+span.social-footer a.twt-social {
+    color:#00acee
+}
+span.social-footer a.ws-social {
+    color:#25d366;
 }
 /* productos */
 #tiendita{

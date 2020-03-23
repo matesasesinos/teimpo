@@ -17,6 +17,8 @@ add_action('wp_enqueue_scripts', 'elegant_enqueue_css');
 
 require get_theme_file_path( 'inc/functions.php' );
 require get_theme_file_path('inc/og/OpenGraph.php');
+require get_theme_file_path('inc/post_types.php');
+require get_theme_file_path( 'inc/shortcodes.php' );
 
 //creamos el post con el feed
 function create_feed_post($post_id)
