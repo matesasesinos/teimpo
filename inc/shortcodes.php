@@ -105,4 +105,4 @@ function testgraph(){
     echo iconv('UTF-8', 'ISO-8859-1', $graph3->description);
 }
 
-add_shortcode('test', 'testgraph');
+//add_shortcode('test', 'testgraph');

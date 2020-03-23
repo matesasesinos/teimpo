@@ -126,6 +126,7 @@ div#notas {
     font-weight: 800;
     margin-top: 10px;
     margin-bottom: 10px;
+    word-break: break-all;
 }
 .nota-description-feed {
     margin-top: 10px;
