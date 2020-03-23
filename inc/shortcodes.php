@@ -96,11 +96,13 @@ function cloud_tags() {
 add_shortcode('cloud', 'cloud_tags');
 
 function testgraph(){
-    $graph = OpenGraph::fetch('https://www.instagram.com/p/B-FX76dAFOO/');
+    $graph = OpenGraph::fetch('https://www.buenosaires.gob.ar/derechoshumanos/noticias/se-suspendio-la-carrera-de-miguel');
+    $graph2 = OpenGraph::fetch('https://www.instagram.com/p/B-FX76dAFOO/');
+    $graph3 = OpenGraph::fetch('https://play.google.com/store/apps/details?id=ar.gob.coronavirus');
 
-    $url = parse_url('https://www.instagram.com/p/B-FX76dAFOO/',PHP_URL_HOST);
-
-    return $url;
+    var_dump(iconv('UTF-8', 'ISO-8859-1', utf8_decode($graph->description)));
+    echo '<br>';
+    echo iconv('UTF-8', 'ISO-8859-1', $graph3->description);
 }
 
 add_shortcode('test', 'testgraph');
