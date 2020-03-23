@@ -58,7 +58,9 @@ h1{
     border-radius: 99px;
     font-size: .8rem;
 }
-
+#slide-home .et_pb_button:after, #slide-home .et_pb_button:before{
+    font-size: 1.5em;
+}
 /* home */
 #noticias{
     padding-top: 0px !important;
