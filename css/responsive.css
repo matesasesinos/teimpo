@@ -38,6 +38,10 @@
          margin: 0;
          font-weight: 100;
      }
+     div#custom_html-2 {
+        text-align: right !important;
+        width: 100%;
+    }
     
 }
 
@@ -109,6 +113,5 @@
     #seamos-socios{
         padding: 1.5% 3% !important; 
         bottom: 5% !important;
-        left: 3% !important;
     }
 }
