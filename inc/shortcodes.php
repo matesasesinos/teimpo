@@ -9,17 +9,23 @@ function feed_function()
         $content =  '<div id="notas" class="notas grid">';
         while ($the_query->have_posts()) {
             $the_query->the_post();
-            $url =  get_field('url_nota', $post->ID);
+            $url =  get_field('url_nota', get_the_ID());
             $url2 = parse_url($url, PHP_URL_HOST);
             $graph = OpenGraph::fetch($url);
-            $terms = get_the_terms($post->ID, 'feed_tag');
+            $terms = get_the_terms(get_the_ID(), 'feed_tag');
             $filter = implode(',',wp_list_pluck($terms,'name'));
-            $fuente = get_field('fuente', $post->ID) ? get_field('fuente', $post->ID) : get_field('otra', $post->ID);
-            $twitter = get_field('twitter_url', $post->ID);
+            $fuente = get_field('fuente', get_the_ID());
+            $twitter = get_field('twitter_url', get_the_ID());
             if (empty($twitter)) {
                 $content .=  '<div class="nota-feed grid-item" data-filter="'.$filter.'">';
                 if ($fuente && $fuente !== 'tiempo') {
-                    $content .=  '<a href="' . $url . '" target="_blank" class="fuente-footer ' . $fuente . '">' . $fuente . '</a>';
+                    $content .=  '<a href="' . $url . '" target="_blank" class="fuente-footer ' . $fuente . '">';
+                    if($fuente === 'otra') {
+                        $content .= get_field('otra',get_the_ID());
+                    } else {
+                        $content .= $fuente;
+                    }
+                    $content .= '</a>';
                 } else {
                     $content .=  '<a href="' . $url . '" target="_blank" class="fuente-footer"><img src="'.get_stylesheet_directory_uri().'/img/image.png" class="tiempo-logo-fuente" /></a>';
                 }
@@ -27,12 +33,12 @@ function feed_function()
                 if ($url2 === 'www.youtube.com') {
                     $content .= embed($url);
                 } else {
-                    $content .=  '<a href="'.$url.'" target="_blank"><img src="' . get_field('imagen_nota', $post->ID) . '"/></a>';
+                    $content .=  '<a href="'.$url.'" target="_blank"><img src="' . get_field('imagen_nota', get_the_ID()) . '"/></a>';
                 }
 
                 $content .=  '</div>';
-                $content .=  '<div class="nota-title-feed"><a href="'.$url.'" target="_blank">' . get_field('titulo_nota', $post->ID) . '</a></div>';
-                $content .=  '<div class="nota-description-feed"><a href="'.$url.'" target="_blank">' . get_field('descripcion', $post->ID) . '</a></div>';
+                $content .=  '<div class="nota-title-feed"><a href="'.$url.'" target="_blank">' . get_field('titulo_nota', get_the_ID()) . '</a></div>';
+                $content .=  '<div class="nota-description-feed"><a href="'.$url.'" target="_blank">' . get_field('descripcion', get_the_ID()) . '</a></div>';
                 $content .=  '<div class="terms nota-footer">';
                 $content .=  '<span class="tags-f">';
                 foreach ($terms as $t) {
