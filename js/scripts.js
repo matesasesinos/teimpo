@@ -86,7 +86,7 @@
 			$(this).attr('data-tag', tag);
 		});
 	});
-	$(document).ready(function(){
+	$(document).ready(function () {
 		var tag = $('a.tag-cloud-link').data('tag');
 		$('a.tag-cloud-link').click(function (e) {
 			var selectSize = $(this).text();
@@ -95,20 +95,20 @@
 			e.preventDefault();
 		});
 
-		$('a.tag-term').click(function(e){
+		$('a.tag-term').click(function (e) {
 			var selectSize = $(this).text();
 			filter(selectSize);
 			masonryUpdate();
 			e.preventDefault();
 		});
-		
+
 		function filter(e) {
 			var regex = new RegExp('\\b' + e + '\\b');
-				//console.log('test', regex);
+			//console.log('test', regex);
 			$('.nota-feed').hide().filter(function () {
 				//console.log($(this).data('filter'), regex.test($(this).data('filter')))
 				return regex.test($(this).data('filter'));
-				
+
 			}).show();
 		}
 
@@ -128,4 +128,6 @@
 				});
 		});
 	});
+
+
 }(jQuery));

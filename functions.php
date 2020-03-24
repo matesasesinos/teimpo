@@ -7,8 +7,8 @@ function elegant_enqueue_css()
 	wp_enqueue_style('css-responsive', get_stylesheet_directory_uri() . '/css/responsive.css');
 	wp_enqueue_style('slick-fl-css', get_stylesheet_directory_uri() . '/slick/slick.css');
 	wp_enqueue_style('slick-fl-css-theme', get_stylesheet_directory_uri() . '/slick/slick-theme.css');
-	wp_enqueue_script('slick-fl-js', get_stylesheet_directory_uri() . '/slick/slick.min.js');
-	wp_enqueue_script('masonry-js', get_stylesheet_directory_uri() . '/js/masonry.pkgd.min.js');
+	wp_enqueue_script('slick-fl-js', get_stylesheet_directory_uri() . '/slick/slick.min.js',array('jquery'),'1.8.0', true);
+	wp_enqueue_script('masonry-js', get_stylesheet_directory_uri() . '/js/masonry.pkgd.min.js',array('jquery'), '4.2.2', true);
 	wp_enqueue_script('masonry-js-filters', get_stylesheet_directory_uri() . '/js/multipleFilterMasonry.js');
 	wp_enqueue_script('tw-js', 'https://platform.twitter.com/widgets.js');
 	wp_enqueue_script('theme_js', get_stylesheet_directory_uri() . '/js/scripts.js', array('jquery'), '1.0', true);
@@ -56,3 +56,46 @@ function add_footer_text_function()
 	echo '<a href="https://www.tiempoar.com.ar/seamossocios" target="_blank" id="seamos-socios">seamos socios</a>';
 }
 add_action('wp_footer', 'add_footer_text_function');
+
+
+//ajax
+// function load_posts_by_ajax_callback() {
+//     check_ajax_referer('load_more_posts', 'security');
+//     $paged = $_POST['page'];
+//     $args = array(
+//         'post_type' => 'notas',
+//         'post_status' => 'publish',
+//         'posts_per_page' => '5',
+//         'paged' => $paged,
+//     );
+//     $blog_posts = new WP_Query( $args );
+//     if ( $blog_posts->have_posts() ) : 
+// 		 while ( $blog_posts->have_posts() ) : $blog_posts->the_post(); 
+// 		 	echo '<div id="notas" class="notas grid">';
+// 			echo get_field('fuente', get_the_ID()).'<br>';
+// 			echo '</div>';
+//          endwhile; 
+        
+//     endif;
+ 
+//     wp_die();
+// }
+
+// function blog_scripts() {
+//     // Register the script
+//     wp_register_script( 'custom-script', get_stylesheet_directory_uri(). '/js/ajax.js', array('jquery'), false, true );
+ 
+//     // Localize the script with new data
+//     $script_data_array = array(
+//         'ajaxurl' => admin_url( 'admin-ajax.php' ),
+//         'security' => wp_create_nonce( 'load_more_posts' ),
+//     );
+//     wp_localize_script( 'custom-script', 'blog', $script_data_array );
+ 
+//     // Enqueued script with localized data.
+//     wp_enqueue_script( 'custom-script' );
+// }
+// add_action( 'wp_enqueue_scripts', 'blog_scripts' );
+
+// add_action('wp_ajax_load_posts_by_ajax', 'load_posts_by_ajax_callback');
+// add_action('wp_ajax_nopriv_load_posts_by_ajax', 'load_posts_by_ajax_callback');
