@@ -143,6 +143,7 @@ div#notas {
     color: black;
     font-weight: normal;
     line-height: 1.3;
+    word-break: break-word;
 }
 .nota-footer{
     border-radius: 0px 0px 6px 6px;
