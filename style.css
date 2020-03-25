@@ -351,3 +351,7 @@ a#seamos-socios:hover, a#seamos-socios-footer:hover{
     border-color: #0062cc;
 }
 
+/* admi */
+#wp-admin-bar-new-content, #wp-admin-bar-edit, #wp-admin-bar-et-use-visual-builder{
+    display:none
+}
