@@ -26,6 +26,8 @@ function feed_function()
                 $fuente = 'twitter.com';
             } else if($parse === 'www.instagram.com') {
                 $fuente = 'instagram';
+            } else if($parse === 'youtu.be') {
+                $fuente = 'youtube';
             } else {
                 $fuente = 'otra';
             }
