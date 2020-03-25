@@ -16,6 +16,7 @@
 		$("div.grid-item").slice(0, 10).show();
 		$("#coso").on('click', function (e) {
 			e.preventDefault();
+			
 			$("div.grid-item:hidden").slice(0, 10).slideDown();
 			if ($("div.grid-item:hidden").length == 0) {
 				$("#coso").fadeOut('slow');
@@ -24,6 +25,7 @@
 				scrollTop: $(this).offset().top
 				
 			}, 1500);
+			resizeAllGridItems();
 		});
 	});
 
@@ -72,34 +74,67 @@
 				});
 		});
 	});
+	//masorny
+	function resizeGridItem(item){
+		var grid = $(".notas")[0];
+		var rowHeight = parseInt(window.getComputedStyle(grid).getPropertyValue('grid-auto-rows'));
+		var rowGap = parseInt(window.getComputedStyle(grid).getPropertyValue('grid-row-gap'));
+		var rowSpan = Math.ceil((item.querySelector('.content').getBoundingClientRect().height+rowGap)/(rowHeight+rowGap));
+		item.style.gridRowEnd = "span "+rowSpan;
+	}
+
+	function resizeAllGridItems(){
+		var x;
+		var allItems = $(".grid-item");
+		for(x=0;x<allItems.length;x++){
+		resizeGridItem(allItems[x]);
+		}
+	}
 	
+	function resizeInstance(instance){
+		var item = instance.elements[0];
+		resizeGridItem(item);
+	}
+
+	$(window).load(function(){
+		resizeAllGridItems();
+	});
+	$(window).on('resize', resizeAllGridItems);
+	$(window).load(function(){
+		var x;
+		var allItems = $(".grid-item");
+		for(x=0;x<allItems.length;x++){
+			imagesLoaded( allItems[x], resizeInstance);
+		}
+	});
 }(jQuery));
 
-//masorny
-function resizeGridItem(item){
-	grid = document.getElementsByClassName("notas")[0];
-	rowHeight = parseInt(window.getComputedStyle(grid).getPropertyValue('grid-auto-rows'));
-	rowGap = parseInt(window.getComputedStyle(grid).getPropertyValue('grid-row-gap'));
-	rowSpan = Math.ceil((item.querySelector('.content').getBoundingClientRect().height+rowGap)/(rowHeight+rowGap));
-	item.style.gridRowEnd = "span "+rowSpan;
-}
+// function resizeGridItem(item){
+// 	grid = document.getElementsByClassName("notas")[0];
+// 	rowHeight = parseInt(window.getComputedStyle(grid).getPropertyValue('grid-auto-rows'));
+// 	rowGap = parseInt(window.getComputedStyle(grid).getPropertyValue('grid-row-gap'));
+// 	rowSpan = Math.ceil((item.querySelector('.content').getBoundingClientRect().height+rowGap)/(rowHeight+rowGap));
+// 	item.style.gridRowEnd = "span "+rowSpan;
+// }
 
-function resizeAllGridItems(){
-	allItems = document.getElementsByClassName("grid-item");
-	for(x=0;x<allItems.length;x++){
-	resizeGridItem(allItems[x]);
-	}
-}
+// function resizeAllGridItems(){
+// 	allItems = document.getElementsByClassName("grid-item");
+// 	for(x=0;x<allItems.length;x++){
+// 	resizeGridItem(allItems[x]);
+// 	}
+// }
 
-function resizeInstance(instance){
-	item = instance.elements[0];
-	resizeGridItem(item);
-}
-window.onload = resizeAllGridItems();
-window.addEventListener("resize", resizeAllGridItems);
+// function resizeInstance(instance){
+// 	item = instance.elements[0];
+// 	resizeGridItem(item);
+// }
 
 
-allItems = document.getElementsByClassName("grid-item");
-for(x=0;x<allItems.length;x++){
-	imagesLoaded( allItems[x], resizeInstance);
-}
+//window.onload = resizeAllGridItems();
+//window.addEventListener("resize", resizeAllGridItems);
+
+
+// allItems = document.getElementsByClassName("grid-item");
+// for(x=0;x<allItems.length;x++){
+// 	imagesLoaded( allItems[x], resizeInstance);
+// }
