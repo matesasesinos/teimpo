@@ -1,9 +1,8 @@
-@media (min-width:992px){
-
-    .nota-feed{
+@media (min-width:992px) {
+    .nota-feed {
         width: 100%;
         /*float: left;*/
-       /* position: relative;*/
+        /* position: relative;*/
     }
     /* fix masorny */
     .content {
@@ -19,38 +18,40 @@
     div#contenido_title p {
         margin: 0% 0 1.5%;
     }
-
     div#title_site {
         padding: 1.5% 0;
     }
-
     div#cargar_mas {
         height: auto;
         overflow: hidden;
         padding: 1% 0;
     }
-    h5.temas{
+    h5.temas {
         margin-top: 0;
-         padding: 0;
-         margin: 0;
-         font-weight: 100;
-     }
-     div#custom_html-2 {
-        text-align: right !important;
+        padding: 0;
+        margin: 0;
+        font-weight: 100;
+    }
+    div#custom_html-2 {
+        text-align: center !important;
         width: 100%;
     }
-    
+    #custom_html-3{
+        display: none;
+    }
+    #seamos-socios {
+        display: block;
+    }
 }
 
-@media (max-width:768px){
+@media (max-width:768px) {
     .content {
         padding: 7%;
     }
-
     div#contenido_title h3 {
         padding: 5% 0 5.5%;
     }
-    div#contenido_title h4{
+    div#contenido_title h4 {
         line-height: 32px;
     }
     div#contenido_title p {
@@ -65,36 +66,30 @@
     div#title_site {
         padding: 6.5% 4.5%;
     }
-    div#title_site h1{
+    div#title_site h1 {
         font-size: 32px;
     }
-    div#title_site h3{
+    div#title_site h3 {
         font-size: 24px;
         margin: 4% 0;
     }
-
-    #slide-home h2.et_pb_slide_title{
+    #slide-home h2.et_pb_slide_title {
         font-size: 30px !important;
         text-align: center !important;
         font-weight: 900 !important;
     }
-
     #slide-home .et_pb_slide_content {
         font-size: 16px !important;
         text-align: center !important;
-        
     }
-
     #slide-home .et_pb_button_wrapper {
         text-align: center;
     }
-
     div#cargar_mas {
         height: auto;
         overflow: hidden;
         padding: 7% 0;
     }
-
     div#media_image-3 {
         width: 100%;
         text-align: center;
@@ -104,24 +99,58 @@
         margin-right: auto;
         float: none;
     }
-    div#custom_html-2{
+    div#custom_html-2 {
         text-align: center !important;
-        width: 29%;
+        width: 100%;
     }
-    #seamos-socios{
-        padding: 1.5% 3% !important; 
-        bottom: 5% !important;
+    #seamos-socios {
+        display: none;
+    }
+    #custom_html-3{
+        display: inline-block;
+    }
+    .footer-widget:nth-child(n) {
+        width: 100% !important;
+    }
+    div#custom_html-3 {
+        width: 100%;
+        text-align: center;
+        padding: 4% 0;
     }
 }
-@media (max-width:567px) {
-    div#notas{
+
+@media (max-width:479px) {
+    div#notas {
         /*padding: 0 20px;*/
-    margin-left: -15px
+        margin-left: -15px
     }
-    .grid-item.nota-feed.feed-twitter{
+    .grid-item.nota-feed.feed-twitter {
         padding: 1.2% 0 !important;
     }
     div#title_site h1 {
         font-size: 28px;
+    }
+    div#title_site h3 {
+        font-size: 22px;
+        margin: 2% 0;
+    }
+    div#contenido_title h3 {
+        padding-left: 5%;
+        padding-right: 5%
+    }
+    .nota-feed {
+        max-width: 83%;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    div#custom_html-2 {
+        width: 100%;
+    }
+
+    a#seamos-socios-footer {
+        padding: 2% 5% !important;
+    }
+    #footer-widgets .footer-widget:nth-child(n), .footer-widget .fwidget{
+        margin-bottom: 2.5%!important;
     }
 }

@@ -46,6 +46,10 @@ h1{
 #main-footer {
     background-color: black;
 }
+#main-footer .container{
+    max-width: 100%;
+    width: 98%;
+}
 /* slide */
 
 #slide-home .et_pb_more_button {
@@ -332,8 +336,15 @@ a#seamos-socios {
     border-radius: 24px;
     text-transform: uppercase;
 }
-
-a#seamos-socios:hover{
+a#seamos-socios-footer{
+    background: #007bff;
+    color: white;
+    padding: 0.5% 1%;
+    border-radius: 24px;
+    text-transform: uppercase;
+}
+a#seamos-socios:hover, a#seamos-socios-footer:hover{
     background-color: #0069d9;
     border-color: #0062cc;
 }
+

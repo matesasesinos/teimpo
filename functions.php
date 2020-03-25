@@ -29,15 +29,6 @@ function create_feed_post($post_id)
 	if (isset($_POST['acf']['field_5e750ea627d22'])) {
 		$graph = OpenGraph::fetch($url);
 		$descripcion = iconv('UTF-8', 'ISO-8859-1', utf8_decode($graph->description));
-		
-		// $url=$graph->image;
-		// $contents=file_get_contents($url);
-		// $extension = pathinfo(parse_url($graph->image, PHP_URL_PATH), PATHINFO_EXTENSION);
-		// $s = substr(str_shuffle(str_repeat("0123456789abcdefghijklmnopqrstuvwxyz", 5)), 0, 10);
-		// $n = rand(0,99);
-		// $name = $n.$s.'.'.$extension;
-		// $save_path= THEME_URI.'/'.$name;
-		// file_put_contents($save_path,$contents);
 
 		update_field('imagen_nota', $graph->image, $post_id);
 
