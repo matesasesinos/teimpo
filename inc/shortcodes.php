@@ -129,25 +129,17 @@ function cloud_tags() {
 add_shortcode('cloud', 'cloud_tags');
 
 function testgraph(){
-    $parse = parse_url('https://mail.google.com/mail/u/0/?tab=wm&ogbl&pli=1#inbox', PHP_URL_HOST);
-    if($parse === 'www.youtube.com') {
-        $fuente = 'youtube';
-    } else if($parse === 'www.tiempoar.com.ar') {
-        $fuente = 'tiempo';
-    } else if($parse === 'www.facebook.com') {
-        $fuente = 'facebook';
-    } else if($parse === 'twitter.com') {
-        $fuente = 'twitter';
-    } else if($parse === 'twitter.com') {
-        $fuente = 'twitter.com';
-    } else if($parse === 'www.instagram.com') {
-        $fuente = 'instagram';
-    } else {
-        $fuente = $parse;
+    $url = 'https://www.youtube.com/watch?time_continue=740&v=e8-MSY7XPqQ';
+    $parse = parse_url($url, PHP_URL_HOST);
+    $graph = OpenGraph::fetch($url);
+    $descripcion = iconv('UTF-8', 'ISO-8859-1', utf8_decode($graph->description));
+    if ($descripcion == false) {
+        if($parse != 'www.youtube.com') {
+            echo '<br>'.utf8_decode($graph->description);
+        }
+       
     }
-    
-
-    echo $fuente;
+     
 }
 
-//add_shortcode('test', 'testgraph');
+add_shortcode('test', 'testgraph');
