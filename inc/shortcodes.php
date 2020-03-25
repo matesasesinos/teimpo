@@ -17,7 +17,7 @@ function feed_function()
             $fuente = get_field('fuente', get_the_ID());
             $twitter = get_field('twitter_url', get_the_ID());
             if (empty($twitter)) {
-                $content .=  '<div class="nota-feed grid-item" data-filter="'.$filter.'">';
+                $content .=  '<div class="nota-feed grid-item" data-filter="'.$filter.'"><div class="content">';
                 if ($fuente && $fuente !== 'tiempo') {
                     $content .=  '<a href="' . $url . '" target="_blank" class="fuente-footer ' . $fuente . '">';
                     if($fuente === 'otra') {
@@ -51,11 +51,19 @@ function feed_function()
                 <a href="https://wa.me/?text='.$url.'" class="ws-social" target="_blank"><i class="fab fa-whatsapp"></i></a>
             </span>';
                 $content .=  '</div>';
-                $content .=  '</div>';
+                $content .=  '</div></div>';
             } else {
-                $content .=  '<div class="grid-item nota-feed feed-twitter" data-filter="'.$filter.'">';
-                if ($fuente) {
-                    $content .=  '<a href="#" target="_blank" class="fuente-footer ' . $fuente . '">' . $fuente . '</a>';
+                $content .=  '<div class="grid-item nota-feed feed-twitter" data-filter="'.$filter.'"><div class="content">';
+                if ($fuente && $fuente !== 'tiempo') {
+                    $content .=  '<a href="' . $url . '" target="_blank" class="fuente-footer ' . $fuente . '">';
+                    if($fuente === 'otra') {
+                        $content .= get_field('otra',get_the_ID());
+                    } else {
+                        $content .= $fuente;
+                    }
+                    $content .= '</a>';
+                } else {
+                    $content .=  '<a href="' . $url . '" target="_blank" class="fuente-footer"><img src="'.get_stylesheet_directory_uri().'/img/image.png" class="tiempo-logo-fuente" /></a>';
                 }
                 $content .= twitter($twitter);
                 $content .=  '<div class="terms nota-footer">';
@@ -70,7 +78,7 @@ function feed_function()
                     <a href="https://wa.me/?text='.$twitter.'" class="ws-social" target="_blank"><i class="fab fa-whatsapp"></i></a>
                 </span>';
                 $content .=  '</div>';
-                $content .=  '</div>';
+                $content .=  '</div></div>';
             }
             
         }

@@ -1,63 +1,13 @@
 (function ($) {
 	"use strict";
-	$(document).ready(function () {
-		$('.products-home').slick({
-			dots: true,
-			infinite: false,
-			speed: 300,
-			arrows: false,
-			slidesToShow: 4,
-			slidesToScroll: 4,
-			autoplay: true,
-			autoplaySpeed: 2000,
-			responsive: [
-				{
-					breakpoint: 1024,
-					settings: {
-						slidesToShow: 3,
-						slidesToScroll: 3,
-						infinite: true,
-						dots: true
-					}
-				},
-				{
-					breakpoint: 600,
-					settings: {
-						slidesToShow: 2,
-						slidesToScroll: 2,
-						dots: true
-					}
-				},
-				{
-					breakpoint: 480,
-					settings: {
-						slidesToShow: 1,
-						slidesToScroll: 1,
-						dots: true
-					}
-				}
-				// You can unslick at a given breakpoint now by adding:
-				// settings: "unslick"
-				// instead of a settings object
-			]
-		});
-	});
-	var masonryUpdate = function () {
-		setTimeout(function () {
-			$('#notas').masonry();
-		}, 500);
-	}
 	$(window).load(function () {
+		$('a.tag-cloud-link').attr('href', '#');
 
-		$('.notas').masonry({
-			// options
-			itemSelector: '.grid-item',
-			gutter: 10,
-			percentPosition: true,
-			originTop: true,
-			resize: false
+		var categories = {};
+		$(".wp-tag-cloud li a.tag-cloud-link").each(function () {
+			var tag = $(this).text();
+			$(this).attr('data-tag', tag);
 		});
-		masonryUpdate();
 	});
 
 	$(window).load(function () {
@@ -70,35 +20,24 @@
 			if ($("div.grid-item:hidden").length == 0) {
 				$("#coso").fadeOut('slow');
 			}
-			masonryUpdate();
 			$('html,body').animate({
 				scrollTop: $(this).offset().top
+				
 			}, 1500);
 		});
 	});
 
-	$(window).load(function () {
-		$('a.tag-cloud-link').attr('href', '#');
-
-		var categories = {};
-		$(".wp-tag-cloud li a.tag-cloud-link").each(function () {
-			var tag = $(this).text();
-			$(this).attr('data-tag', tag);
-		});
-	});
 	$(document).ready(function () {
 		var tag = $('a.tag-cloud-link').data('tag');
 		$('a.tag-cloud-link').click(function (e) {
 			var selectSize = $(this).text();
 			filter(selectSize);
-			masonryUpdate();
 			e.preventDefault();
 		});
-
+		
 		$('a.tag-term').click(function (e) {
 			var selectSize = $(this).text();
 			filter(selectSize);
-			masonryUpdate();
 			e.preventDefault();
 		});
 
@@ -110,10 +49,12 @@
 				return regex.test($(this).data('filter'));
 
 			}).show();
+			
 		}
 
 	});
 	//twitter
+	
 	$(document).ready(function () {
 		var tweets = $(".tweet");
 		$(tweets).each(function (t, tweet) {
@@ -121,13 +62,44 @@
 			twttr.widgets.createTweet(
 				id, tweet,
 				{
-					conversation: 'none',    // or all
-					cards: 'hidden',  // or visible 
-					linkColor: '#cc0000', // default is blue
-					theme: 'light'    // or dark
+					conversation: 'none', 
+					cards: 'visible',  
+					linkColor: '#cc0000', 
+					theme: 'light', 
+					lang: 'es'
+				}).then(function(tweet){
+					resizeAllGridItems();
 				});
 		});
 	});
-
-
+	
 }(jQuery));
+
+//masorny
+function resizeGridItem(item){
+	grid = document.getElementsByClassName("notas")[0];
+	rowHeight = parseInt(window.getComputedStyle(grid).getPropertyValue('grid-auto-rows'));
+	rowGap = parseInt(window.getComputedStyle(grid).getPropertyValue('grid-row-gap'));
+	rowSpan = Math.ceil((item.querySelector('.content').getBoundingClientRect().height+rowGap)/(rowHeight+rowGap));
+	item.style.gridRowEnd = "span "+rowSpan;
+}
+
+function resizeAllGridItems(){
+	allItems = document.getElementsByClassName("grid-item");
+	for(x=0;x<allItems.length;x++){
+	resizeGridItem(allItems[x]);
+	}
+}
+
+function resizeInstance(instance){
+	item = instance.elements[0];
+	resizeGridItem(item);
+}
+window.onload = resizeAllGridItems();
+window.addEventListener("resize", resizeAllGridItems);
+
+
+allItems = document.getElementsByClassName("grid-item");
+for(x=0;x<allItems.length;x++){
+	imagesLoaded( allItems[x], resizeInstance);
+}

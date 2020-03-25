@@ -7,7 +7,7 @@ function embed($url){
         $content = $url;
     } else {
         parse_str( parse_url( $url, PHP_URL_QUERY ), $yid );
-        $content = '<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/'.$yid['v'].'?controls=0" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>';
+        $content = '<iframe width="560" height="315" src="https://www.youtube.com/embed/'.$yid['v'].'?controls=0" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>';
     }
     return $content;
 }

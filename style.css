@@ -17,6 +17,7 @@ body {
     font-weight: normal;
     font-size: 14px;
     line-height: 1.428571429;
+    overflow-x: hidden;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -95,10 +96,10 @@ div#contenido_title h3, div#contenido_title h4, div#contenido_title p{
     padding-bottom: 2rem;
 }
 div#notas {
-    padding: 0 1%;
-    /* height: auto;
-    overflow: hidden;
-    margin-bottom: 2%; */
+   display: grid;
+  grid-gap: 20px;
+  grid-template-columns: repeat(auto-fill, minmax(350px,2fr));
+  grid-auto-rows: 20px;
 }
 .nota-feed{
     border: 1px solid #e1e8ed;
@@ -108,14 +109,10 @@ div#notas {
     border-radius: 6px;
     -webkit-transition: all 0.3s ease;
     transition: all 0.3s ease;
-    margin-bottom: 1%;
-    padding: 1.2% 1.5% 1% 1.5%;
+    /* margin-bottom: 1%;
+    padding: 1.2% 1.5% 1% 1.5%; */
 }
-.nota-feed-full{
-    width: 100% !important;
-    height: 50px;
-    background-color: black;
-}
+
 .nota-img-feed{
     max-width: 100%;
     height: auto;
