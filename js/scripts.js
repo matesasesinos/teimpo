@@ -29,7 +29,7 @@
 		});
 	});
 
-	$(window).load(function () {
+	$(document).ready(function () {
 		//var tag = $('a.tag-cloud-link').data('tag');
 		$('a.tag-cloud-link').click(function (e) {
 			var selectSize = $(this).text();
@@ -58,7 +58,7 @@
 	});
 	//twitter
 	
-	$(document).ready(function () {
+	$(window).load(function () {
 		var tweets = $(".tweet");
 		$(tweets).each(function (t, tweet) {
 			var id = $(this).attr('id');
