@@ -35,12 +35,14 @@
 			var selectSize = $(this).text();
 			filter(selectSize);
 			e.preventDefault();
+			resizeAllGridItems();
 		});
 		
 		$('a.tag-term').click(function (e) {
 			var selectSize = $(this).text();
 			filter(selectSize);
 			e.preventDefault();
+			resizeAllGridItems();
 		});
 
 		function filter(e) {
@@ -49,7 +51,6 @@
 			$('.nota-feed').hide().filter(function () {
 				//console.log($(this).data('filter'), regex.test($(this).data('filter')))
 				return regex.test($(this).data('filter'));
-
 			}).show();
 			
 		}
