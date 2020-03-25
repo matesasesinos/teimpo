@@ -94,6 +94,9 @@ add_shortcode('feed_shortcode', 'feed_function');
 //cloud tags
 function cloud_tags() {
     $args = [
+        'smallest'   => 10,
+        'largest'    => 22,
+        'unit'       => 'pt',
         'format' => 'list',
         'order'      => 'RAND',
         'post_type' => 'notas',

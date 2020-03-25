@@ -122,10 +122,11 @@ div#notas {
     line-height: 21px;
     font-family: Lato;
     font-size: 20px;
-    font-weight: 800;
+    font-weight: bold;
     margin-top: 10px;
     margin-bottom: 10px;
-    word-break: break-all;
+    word-break: break-word;
+    line-height: 1.2;
 }
 .nota-description-feed {
     margin-top: 10px;

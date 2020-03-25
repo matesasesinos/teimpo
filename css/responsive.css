@@ -115,10 +115,13 @@
 }
 @media (max-width:567px) {
     div#notas{
-        padding: 0 20px;
+        /*padding: 0 20px;*/
     margin-left: -15px
     }
     .grid-item.nota-feed.feed-twitter{
         padding: 1.2% 0 !important;
+    }
+    div#title_site h1 {
+        font-size: 28px;
     }
 }
