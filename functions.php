@@ -33,9 +33,14 @@ function create_feed_post($post_id)
 	
 			update_field('imagen_nota', $graph->image, $post_id);
 	
-			if ($descripcion == false || $parse != 'www.youtube.com') {
-				update_field('titulo_nota', $graph->title, $post_id);
-				update_field('descripcion', $graph->description, $post_id);
+			if ($descripcion == false) {
+				if($parse != 'www.youtube.com') {
+					update_field('titulo_nota', $graph->title, $post_id);
+					update_field('descripcion', $graph->description, $post_id);
+				} else {
+					update_field('titulo_nota', utf8_decode($graph->title), $post_id);
+					update_field('descripcion', utf8_decode($graph->description), $post_id);
+				}
 			} else {
 				update_field('titulo_nota', utf8_decode($graph->title), $post_id);
 				update_field('descripcion', utf8_decode($graph->description), $post_id);

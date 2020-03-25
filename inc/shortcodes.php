@@ -141,5 +141,4 @@ function testgraph(){
     }
      
 }
-
-add_shortcode('test', 'testgraph');
+///add_shortcode('test', 'testgraph');
