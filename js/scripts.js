@@ -30,7 +30,7 @@
 	});
 
 	$(document).ready(function () {
-		var tag = $('a.tag-cloud-link').data('tag');
+		//var tag = $('a.tag-cloud-link').data('tag');
 		$('a.tag-cloud-link').click(function (e) {
 			var selectSize = $(this).text();
 			filter(selectSize);
