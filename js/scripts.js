@@ -1,5 +1,39 @@
 (function ($) {
 	"use strict";
+	//masorny
+	function resizeGridItem(item){
+		var grid = $(".notas")[0];
+		var rowHeight = parseInt(window.getComputedStyle(grid).getPropertyValue('grid-auto-rows'));
+		var rowGap = parseInt(window.getComputedStyle(grid).getPropertyValue('grid-row-gap'));
+		var rowSpan = Math.ceil((item.querySelector('.content').getBoundingClientRect().height+rowGap)/(rowHeight+rowGap));
+		item.style.gridRowEnd = "span "+rowSpan;
+	}
+
+	function resizeAllGridItems(){
+		var x;
+		var allItems = $(".grid-item");
+		for(x=0;x<allItems.length;x++){
+		resizeGridItem(allItems[x]);
+		}
+	}
+	
+	function resizeInstance(instance){
+		var item = instance.elements[0];
+		resizeGridItem(item);
+	}
+
+	$(document).ready(function(){
+		resizeAllGridItems();
+	});
+	$(document).on('resize', resizeAllGridItems);
+	$(document).ready(function(){
+		var x;
+		var allItems = $(".grid-item");
+		for(x=0;x<allItems.length;x++){
+			imagesLoaded( allItems[x], resizeInstance);
+		}
+	});
+	//cargamos la nube
 	$(window).load(function () {
 		$('a.tag-cloud-link').attr('href', '#');
 
@@ -9,7 +43,7 @@
 			$(this).attr('data-tag', tag);
 		});
 	});
-
+	//boton de mas
 	$(window).load(function () {
 
 		$("div.grid-item").hide();
@@ -28,7 +62,7 @@
 			resizeAllGridItems();
 		});
 	});
-
+	//links tag cloud
 	$(document).ready(function () {
 		//var tag = $('a.tag-cloud-link').data('tag');
 		$('a.tag-cloud-link').click(function (e) {
@@ -57,8 +91,7 @@
 
 	});
 	//twitter
-	
-	$(window).load(function () {
+	$(document).ready(function () {
 		var tweets = $(".tweet");
 		$(tweets).each(function (t, tweet) {
 			var id = $(this).attr('id');
@@ -75,39 +108,7 @@
 				});
 		});
 	});
-	//masorny
-	function resizeGridItem(item){
-		var grid = $(".notas")[0];
-		var rowHeight = parseInt(window.getComputedStyle(grid).getPropertyValue('grid-auto-rows'));
-		var rowGap = parseInt(window.getComputedStyle(grid).getPropertyValue('grid-row-gap'));
-		var rowSpan = Math.ceil((item.querySelector('.content').getBoundingClientRect().height+rowGap)/(rowHeight+rowGap));
-		item.style.gridRowEnd = "span "+rowSpan;
-	}
-
-	function resizeAllGridItems(){
-		var x;
-		var allItems = $(".grid-item");
-		for(x=0;x<allItems.length;x++){
-		resizeGridItem(allItems[x]);
-		}
-	}
 	
-	function resizeInstance(instance){
-		var item = instance.elements[0];
-		resizeGridItem(item);
-	}
-
-	$(window).load(function(){
-		resizeAllGridItems();
-	});
-	$(window).on('resize', resizeAllGridItems);
-	$(window).load(function(){
-		var x;
-		var allItems = $(".grid-item");
-		for(x=0;x<allItems.length;x++){
-			imagesLoaded( allItems[x], resizeInstance);
-		}
-	});
 }(jQuery));
 
 // function resizeGridItem(item){
