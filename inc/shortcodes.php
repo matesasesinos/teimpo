@@ -2,7 +2,7 @@
 //feed
 function feed_function()
 {
-    $args = ['post_type' => 'notas', 'posts_per_page' => -1];
+    $args = ['post_type' => 'notas', 'posts_per_page' => 100];
     $the_query = new WP_Query($args);
 
     if ($the_query->have_posts()) {
