@@ -64,3 +64,28 @@ function add_footer_text_function()
 	echo '<a href="https://www.tiempoar.com.ar/seamossocios" target="_blank" id="seamos-socios">seamos socios</a>';
 }
 add_action('wp_footer', 'add_footer_text_function');
+
+
+//menu admin
+/**
+ * Removes some menus by page.
+ */
+function tar_remove_menu(){
+   
+	remove_menu_page( 'jetpack' );                    //Jetpack* 
+	remove_menu_page( 'edit.php' );                   //Posts
+	remove_menu_page( 'upload.php' );                 //Media
+	remove_menu_page( 'edit.php?post_type=page' );    //Pages
+	remove_menu_page( 'edit.php?post_type=acf-field-group' );
+	remove_menu_page( 'edit.php?post_type=project' );
+	remove_menu_page( 'edit-comments.php' );          //Comments
+	remove_menu_page( 'themes.php' );                 //Appearance
+	remove_menu_page( 'plugins.php' );                //Plugins
+	remove_menu_page( 'ai1wm_export' );
+	remove_menu_page( 'WP-Optimize' );
+	remove_menu_page( 'et_divi_options' );
+	remove_menu_page( 'tools.php' );                  //Tools
+	remove_menu_page( 'options-general.php' );        //Settings
+	 
+  }
+  add_action( 'admin_menu', 'tar_remove_menu' );
