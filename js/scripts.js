@@ -29,7 +29,7 @@
 		});
 	});
 
-	$(document).ready(function () {
+	$(window).load(function () {
 		//var tag = $('a.tag-cloud-link').data('tag');
 		$('a.tag-cloud-link').click(function (e) {
 			var selectSize = $(this).text();
