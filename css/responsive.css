@@ -122,6 +122,8 @@
 @media (max-width:479px) {
     div#contenido_title h4{
         font-weight: normal !important;
+        padding-left: 1.5%;
+    padding-right: 1.5%;
     }
     div#notas {
         /*padding: 0 20px;*/
