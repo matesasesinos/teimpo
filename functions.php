@@ -25,19 +25,21 @@ define( 'THEME_URI', get_stylesheet_directory_uri().'/img/feed/' );
 function create_feed_post($post_id)
 {
 	$url = $_POST['acf']['field_5e750ea627d22'];
-
-	if (isset($_POST['acf']['field_5e750ea627d22'])) {
-		$graph = OpenGraph::fetch($url);
-		$descripcion = iconv('UTF-8', 'ISO-8859-1', utf8_decode($graph->description));
-
-		update_field('imagen_nota', $graph->image, $post_id);
-
-		if ($descripcion == false) {
-			update_field('titulo_nota', $graph->title, $post_id);
-			update_field('descripcion', $graph->description, $post_id);
-		} else {
-			update_field('titulo_nota', utf8_decode($graph->title), $post_id);
-			update_field('descripcion', utf8_decode($graph->description), $post_id);
+	$parse = parse_url($url, PHP_URL_HOST);
+	if($parse  !== 'twitter.com') {
+		if (isset($_POST['acf']['field_5e750ea627d22'])) {
+			$graph = OpenGraph::fetch($url);
+			$descripcion = iconv('UTF-8', 'ISO-8859-1', utf8_decode($graph->description));
+	
+			update_field('imagen_nota', $graph->image, $post_id);
+	
+			if ($descripcion == false) {
+				update_field('titulo_nota', $graph->title, $post_id);
+				update_field('descripcion', $graph->description, $post_id);
+			} else {
+				update_field('titulo_nota', utf8_decode($graph->title), $post_id);
+				update_field('descripcion', utf8_decode($graph->description), $post_id);
+			}
 		}
 	}
 }

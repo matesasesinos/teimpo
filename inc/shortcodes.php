@@ -10,18 +10,34 @@ function feed_function()
         while ($the_query->have_posts()) {
             $the_query->the_post();
             $url =  get_field('url_nota', get_the_ID());
-            $url2 = parse_url($url, PHP_URL_HOST);
-            $graph = OpenGraph::fetch($url);
+            $parse = parse_url($url, PHP_URL_HOST);
             $terms = get_the_terms(get_the_ID(), 'feed_tag');
             $filter = implode(',',wp_list_pluck($terms,'name'));
-            $fuente = get_field('fuente', get_the_ID());
+
+            if($parse === 'www.youtube.com') {
+                $fuente = 'youtube';
+            } else if($parse === 'www.tiempoar.com.ar') {
+                $fuente = 'tiempo';
+            } else if($parse === 'www.facebook.com') {
+                $fuente = 'facebook';
+            } else if($parse === 'twitter.com') {
+                $fuente = 'twitter';
+            } else if($parse === 'twitter.com') {
+                $fuente = 'twitter.com';
+            } else if($parse === 'www.instagram.com') {
+                $fuente = 'instagram';
+            } else {
+                $fuente = 'otra';
+            }
+
+
             $twitter = get_field('twitter_url', get_the_ID());
-            if (empty($twitter)) {
+            if ($parse !== 'twitter.com') {
                 $content .=  '<div class="nota-feed grid-item" data-filter="'.$filter.'"><div class="content">';
                 if ($fuente && $fuente !== 'tiempo') {
                     $content .=  '<a href="' . $url . '" target="_blank" class="fuente-footer ' . $fuente . '">';
                     if($fuente === 'otra') {
-                        $content .= get_field('otra',get_the_ID());
+                        $content .= $parse;
                     } else {
                         $content .= $fuente;
                     }
@@ -30,7 +46,7 @@ function feed_function()
                     $content .=  '<a href="' . $url . '" target="_blank" class="fuente-footer"><img src="'.get_stylesheet_directory_uri().'/img/image.png" class="tiempo-logo-fuente" /></a>';
                 }
                 $content .=  '<div class="nota-img-feed">';
-                if ($url2 === 'www.youtube.com') {
+                if ($parse === 'www.youtube.com') {
                     $content .= embed($url);
                 } else {
                     $content .=  '<a href="'.$url.'" target="_blank"><img src="' . get_field('imagen_nota', get_the_ID()) . '"/></a>';
@@ -57,7 +73,7 @@ function feed_function()
                 if ($fuente && $fuente !== 'tiempo') {
                     $content .=  '<a href="' . $url . '" target="_blank" class="fuente-footer ' . $fuente . '">';
                     if($fuente === 'otra') {
-                        $content .= get_field('otra',get_the_ID());
+                        $content .= $parse;
                     } else {
                         $content .= $fuente;
                     }
@@ -65,8 +81,8 @@ function feed_function()
                 } else {
                     $content .=  '<a href="' . $url . '" target="_blank" class="fuente-footer"><img src="'.get_stylesheet_directory_uri().'/img/image.png" class="tiempo-logo-fuente" /></a>';
                 }
-                $content .= twitter($twitter);
-                $content .=  '<div class="terms nota-footer">';
+                $content .= twitter($url);
+                $content .=  '<div class="terms nota-footer"> ';
                 $content .=  '<span class="tags-f">';
                 foreach ($terms as $t) {
                     $content .=  '<a href="#" class="tag-term" data-tag="' . $t->name . '">' . $t->name . '</a> ';
@@ -113,13 +129,25 @@ function cloud_tags() {
 add_shortcode('cloud', 'cloud_tags');
 
 function testgraph(){
-    $graph = OpenGraph::fetch('https://www.buenosaires.gob.ar/derechoshumanos/noticias/se-suspendio-la-carrera-de-miguel');
-    $graph2 = OpenGraph::fetch('https://www.instagram.com/p/B-FX76dAFOO/');
-    $graph3 = OpenGraph::fetch('https://play.google.com/store/apps/details?id=ar.gob.coronavirus');
+    $parse = parse_url('https://mail.google.com/mail/u/0/?tab=wm&ogbl&pli=1#inbox', PHP_URL_HOST);
+    if($parse === 'www.youtube.com') {
+        $fuente = 'youtube';
+    } else if($parse === 'www.tiempoar.com.ar') {
+        $fuente = 'tiempo';
+    } else if($parse === 'www.facebook.com') {
+        $fuente = 'facebook';
+    } else if($parse === 'twitter.com') {
+        $fuente = 'twitter';
+    } else if($parse === 'twitter.com') {
+        $fuente = 'twitter.com';
+    } else if($parse === 'www.instagram.com') {
+        $fuente = 'instagram';
+    } else {
+        $fuente = $parse;
+    }
+    
 
-    var_dump(iconv('UTF-8', 'ISO-8859-1', utf8_decode($graph->description)));
-    echo '<br>';
-    echo iconv('UTF-8', 'ISO-8859-1', $graph3->description);
+    echo $fuente;
 }
 
 //add_shortcode('test', 'testgraph');
