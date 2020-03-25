@@ -44,7 +44,7 @@
 		});
 	});
 	//boton de mas
-	$(window).load(function () {
+	$(document).ready(function () {
 
 		$("div.grid-item").hide();
 		$("div.grid-item").slice(0, 10).show();
