@@ -55,10 +55,10 @@
 			if ($("div.grid-item:hidden").length == 0) {
 				$("#coso").fadeOut('slow');
 			}
-			$('html,body').animate({
-				scrollTop: $(this).offset().top
+			// $('html,body').animate({
+			// 	scrollTop: $(this).offset().top
 				
-			}, 1500);
+			// }, 1500);
 			resizeAllGridItems();
 		});
 	});

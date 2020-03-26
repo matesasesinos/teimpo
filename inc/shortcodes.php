@@ -131,16 +131,11 @@ function cloud_tags() {
 add_shortcode('cloud', 'cloud_tags');
 
 function testgraph(){
-    $url = 'https://www.youtube.com/watch?time_continue=740&v=e8-MSY7XPqQ';
-    $parse = parse_url($url, PHP_URL_HOST);
-    $graph = OpenGraph::fetch($url);
-    $descripcion = iconv('UTF-8', 'ISO-8859-1', utf8_decode($graph->description));
-    if ($descripcion == false) {
-        if($parse != 'www.youtube.com') {
-            echo '<br>'.utf8_decode($graph->description);
-        }
-       
-    }
+
+    $url2 = 'https://publish.twitter.com/?query='.urlencode('https://twitter.com/AgenciaElVigia/status/1243151730726092802').'&widget=Tweet';
+   
+    echo file_get_contents($url2);
+    
      
 }
-///add_shortcode('test', 'testgraph');
+//add_shortcode('test', 'testgraph');
