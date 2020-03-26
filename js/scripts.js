@@ -35,9 +35,7 @@
 	});
 	//cargo tweets
 	$(window).load(function(){	
-		setTimeout(function(){
 			feedTweets();
-		}, 500);
 	});
 	//cargamos la nube
 	$(window).load(function () {
