@@ -79,7 +79,7 @@ function add_footer_text_function()
 {
 	echo '<a href="https://www.tiempoar.com.ar/seamossocios" target="_blank" id="seamos-socios">seamos socios</a>';
 }
-add_action('wp_footer', 'add_footer_text_function');
+//add_action('wp_footer', 'add_footer_text_function');
 
 
 //menu admin

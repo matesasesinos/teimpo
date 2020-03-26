@@ -350,8 +350,12 @@ a#seamos-socios:hover, a#seamos-socios-footer:hover{
     background-color: #0069d9;
     border-color: #0062cc;
 }
-
-/* admi */
+li.seamos-socios a {
+    font-size: 14px !important;
+    letter-spacing: 1px !important;
+    font-weight: bold;
+}
+/* admin */
 #wp-admin-bar-new-content, #wp-admin-bar-edit, #wp-admin-bar-et-use-visual-builder{
     display:none
 }
