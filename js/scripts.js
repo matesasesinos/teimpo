@@ -65,7 +65,7 @@
 				scrollTop: $(this).offset().top
 				
 			}, 1500);
-			feedTweets();
+			resizeAllGridItems();
 		});
 	});
 	//links tag cloud
@@ -83,14 +83,14 @@
 			var selectSize = $(this).text();
 			filter(selectSize);
 			e.preventDefault();
-			feedTweets();
+			resizeAllGridItems();
 		});
 		
 		$('a.tag-term').click(function (e) {
 			var selectSize = $(this).text();
 			filter(selectSize);
 			e.preventDefault();
-			feedTweets();
+			resizeAllGridItems();
 		});
 
 	});
@@ -115,3 +115,33 @@
 		
 	
 }(jQuery));
+
+// function resizeGridItem(item){
+// 	grid = document.getElementsByClassName("notas")[0];
+// 	rowHeight = parseInt(window.getComputedStyle(grid).getPropertyValue('grid-auto-rows'));
+// 	rowGap = parseInt(window.getComputedStyle(grid).getPropertyValue('grid-row-gap'));
+// 	rowSpan = Math.ceil((item.querySelector('.content').getBoundingClientRect().height+rowGap)/(rowHeight+rowGap));
+// 	item.style.gridRowEnd = "span "+rowSpan;
+// }
+
+// function resizeAllGridItems(){
+// 	allItems = document.getElementsByClassName("grid-item");
+// 	for(x=0;x<allItems.length;x++){
+// 	resizeGridItem(allItems[x]);
+// 	}
+// }
+
+// function resizeInstance(instance){
+// 	item = instance.elements[0];
+// 	resizeGridItem(item);
+// }
+
+
+//window.onload = resizeAllGridItems();
+//window.addEventListener("resize", resizeAllGridItems);
+
+
+// allItems = document.getElementsByClassName("grid-item");
+// for(x=0;x<allItems.length;x++){
+// 	imagesLoaded( allItems[x], resizeInstance);
+// }
