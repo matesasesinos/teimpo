@@ -9,6 +9,7 @@
 		  console.log('time');
 		}
 	  } 
+	  DOMReady(twitter());
 	//masorny
 	function resizeGridItem(item){
 		var grid = $(".notas")[0];
@@ -100,7 +101,7 @@
 
 	});
 	//twitter
-	$(document).ready(function () {
+	function twitter() {
 		var tweets = $(".tweet");
 		$(tweets).each(function (t, tweet) {
 			var id = $(this).attr('id');
@@ -116,7 +117,9 @@
 					resizeAllGridItems();
 				});
 		});
-	});
+	}
+		
+	
 	
 }(jQuery));
 

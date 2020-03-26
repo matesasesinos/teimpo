@@ -1,5 +1,8 @@
 <?php
-
+function add_cors_http_header(){
+    header("Access-Control-Allow-Origin: *");
+}
+add_action('init','add_cors_http_header');
 function elegant_enqueue_css()
 {
 	wp_enqueue_style('parent-style', get_template_directory_uri() . '/style.css');
@@ -9,11 +12,24 @@ function elegant_enqueue_css()
 	wp_enqueue_style('slick-fl-css-theme', get_stylesheet_directory_uri() . '/slick/slick-theme.css');
 	wp_enqueue_script('slick-fl-js', get_stylesheet_directory_uri() . '/slick/slick.min.js',array('jquery'),'1.8.0', true);
 	wp_enqueue_script('img-laod', 'https://cdnjs.cloudflare.com/ajax/libs/jquery.imagesloaded/4.1.1/imagesloaded.pkgd.min.js');
-	wp_enqueue_script('tw-js', 'https://platform.twitter.com/widgets.js');
+	wp_enqueue_script('tw-js', 'https://platform.twitter.com/widgets.js#asyncload');
 	wp_enqueue_script('theme_js', get_stylesheet_directory_uri() . '/js/scripts.js', array('jquery'), '1.0', true);
 }
 
 add_action('wp_enqueue_scripts', 'elegant_enqueue_css');
+
+
+// Carga asíncrona
+function ikreativ_async_scripts($url)
+{
+    if ( strpos( $url, '#asyncload') === false )
+        return $url;
+    else if ( is_admin() )
+        return str_replace( '#asyncload', '', $url );
+    else
+	return str_replace( '#asyncload', '', $url )."' async='async"; 
+    }
+add_filter( 'clean_url', 'ikreativ_async_scripts', 11, 1 );
 
 
 require get_theme_file_path('inc/functions.php');
