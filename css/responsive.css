@@ -39,13 +39,14 @@
     #custom_html-3{
         display: none;
     }
-    #seamos-socios {
-        display: block;
-    }
+    
     ul.wp-tag-cloud {
         padding-left: 3%;
         padding-right: 2%;
         padding-top: 1%;
+    }
+    #seamos-socios {
+        display: none;
     }
 }
 
@@ -112,7 +113,7 @@
         display: none;
     }
     #custom_html-3{
-        display: inline-block;
+        display: none;
     }
     .footer-widget:nth-child(n) {
         width: 100% !important;
@@ -156,7 +157,9 @@
     div#custom_html-2 {
         width: 100%;
     }
-
+    #seamos-socios {
+        display: block;
+    }
     a#seamos-socios-footer {
         padding: 2% 5% !important;
     }
