@@ -355,6 +355,13 @@ a#seamos-socios:hover, a#seamos-socios-footer:hover{
     letter-spacing: 1px !important;
     font-weight: bold;
 }
+h4#temas-hash {
+    font-size: 1.7rem;
+    font-weight: normal;
+}
+h4#temas-hash a{
+    font-weight: normal;
+}
 /* admin */
 #wp-admin-bar-new-content, #wp-admin-bar-edit, #wp-admin-bar-et-use-visual-builder{
     display:none
