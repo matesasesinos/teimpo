@@ -106,5 +106,5 @@ function tar_remove_menu(){
   }
   if(get_current_user_id() !== 1) { //muestro los botones para el usuario ID 1
 	add_action( 'admin_menu', 'tar_remove_menu' );
-  }
+ }
  
