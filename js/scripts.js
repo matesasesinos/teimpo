@@ -1,15 +1,5 @@
 (function ($) {
 	"use strict";
-	function DOMReady(f){
-		if (/(?!.*?compatible|.*?webkit)^mozilla|opera/i.test(navigator.userAgent)){ // Feeling dirty yet?
-		  document.addEventListener("DOMContentLoaded", f, false);
-		  console.log('coso');
-		}else{
-		  window.setTimeout(f,0);
-		  console.log('time');
-		}
-	  } 
-	  DOMReady();
 	//masorny
 	function resizeGridItem(item){
 		var grid = $(".notas")[0];
