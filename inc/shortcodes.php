@@ -83,6 +83,7 @@ function feed_function()
                 } else {
                     $content .=  '<a href="' . $url . '" target="_blank" class="fuente-footer"><img src="'.get_stylesheet_directory_uri().'/img/image.png" class="tiempo-logo-fuente" /></a>';
                 }
+                $content .= '<div class="load-tweet" style="text-align:center; padding:10px 0"><img src="'.get_stylesheet_directory_uri().'/img/45.gif" style="max-width:32px; height:auto" /></div>';
                 $content .= twitter($url);
                 $content .=  '<div class="terms nota-footer"> ';
                 $content .=  '<span class="tags-f">';

@@ -34,7 +34,7 @@
 		}
 	});
 	//cargo tweets
-	$(window).load(function(){	
+	$(window).load(function(){
 			feedTweets();
 	});
 	//cargamos la nube
@@ -112,6 +112,7 @@
 					theme: 'light', 
 					lang: 'es'
 				}).then(function(tweet){
+					$('.load-tweet').hide();	
 					resizeAllGridItems();
 				});
 		});
