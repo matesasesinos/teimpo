@@ -350,7 +350,7 @@ a#seamos-socios:hover, a#seamos-socios-footer:hover{
     background-color: #0069d9;
     border-color: #0062cc;
 }
-li.seamos-socios a {
+#top-menu-nav li.seamos-socios a {
     font-size: 14px !important;
     letter-spacing: 1px !important;
     font-weight: bold;
