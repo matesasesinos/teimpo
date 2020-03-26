@@ -12,8 +12,19 @@ function feed_function()
             $url =  get_field('url_nota', get_the_ID());
             $parse = parse_url($url, PHP_URL_HOST);
             $terms = get_the_terms(get_the_ID(), 'feed_tag');
-            $filter = implode(',',wp_list_pluck($terms,'name'));
-
+            if($terms) {
+                $filter = implode(',',wp_list_pluck($terms,'name'));
+            } else {
+                $filter = '';
+            }
+            $temas = get_the_terms(get_the_ID(), 'temas');
+            if($temas) {
+                $tema = implode(',',wp_list_pluck($temas,'slug'));
+            } else {
+                $tema = '';
+            }
+            
+            //fuente
             if($parse === 'www.youtube.com') {
                 $fuente = 'youtube';
             } else if($parse === 'www.tiempoar.com.ar') {
@@ -31,11 +42,10 @@ function feed_function()
             } else {
                 $fuente = 'otra';
             }
-
-
+            //fuentes
             $twitter = get_field('twitter_url', get_the_ID());
             if ($parse !== 'twitter.com') {
-                $content .=  '<div class="nota-feed grid-item" data-filter="'.$filter.'"><div class="content">';
+                $content .=  '<div class="nota-feed grid-item" data-filter="'.$filter.'" data-tema="'.$tema.'"><div class="content">';
                 if ($fuente && $fuente !== 'tiempo') {
                     $content .=  '<a href="' . $url . '" target="_blank" class="fuente-footer ' . $fuente . '">';
                     if($fuente === 'otra') {
@@ -71,7 +81,7 @@ function feed_function()
                 $content .=  '</div>';
                 $content .=  '</div></div>';
             } else {
-                $content .=  '<div class="grid-item nota-feed feed-twitter" data-filter="'.$filter.'"><div class="content">';
+                $content .=  '<div class="grid-item nota-feed feed-twitter" data-filter="'.$filter.'" data-tema="'.$tema.'"><div class="content">';
                 if ($fuente && $fuente !== 'tiempo') {
                     $content .=  '<a href="' . $url . '" target="_blank" class="fuente-footer ' . $fuente . '">';
                     if($fuente === 'otra') {
@@ -131,6 +141,18 @@ function cloud_tags() {
 
 add_shortcode('cloud', 'cloud_tags');
 
+//cloud tags
+function cloud_temas() {
+    $terms = get_terms('temas', array('hide_empty' => true));
+    $name = '';
+    foreach($terms as $t) {
+        $name .= '<a href="#" data-temas="'.$t->slug.'" class="filter-temas">| '.$t->name.' </a>';
+    }
+    return $name;
+}
+
+add_shortcode('cloud_t', 'cloud_temas');
+
 function testgraph(){
 
     $url2 = 'https://publish.twitter.com/?query='.urlencode('https://twitter.com/AgenciaElVigia/status/1243151730726092802').'&widget=Tweet';
@@ -139,4 +161,4 @@ function testgraph(){
     
      
 }
-add_shortcode('test', 'testgraph');
+//add_shortcode('test', 'testgraph');

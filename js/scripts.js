@@ -74,8 +74,17 @@
 			//console.log($(this).data('filter'), regex.test($(this).data('filter')))
 			return regex.test($(this).data('filter'));
 		}).show();
-
 	}
+
+	function temas(e) {
+		var regex = new RegExp('\\b' + e + '\\b');
+		console.log('test', regex);
+		$('.nota-feed').hide().filter(function () {
+			console.log($(this).data('tema'), regex.test($(this).data('tema')))
+			return regex.test($(this).data('tema'));
+		}).show();
+	}
+
 	$(document).ready(function () {
 		$('a.tag-cloud-link').click(function (e) {
 			var selectSize = $(this).text();
@@ -90,6 +99,16 @@
 		$('a.tag-term').click(function (e) {
 			var selectSize = $(this).text();
 			filter(selectSize);
+			e.preventDefault();
+			$('html,body').animate({
+				scrollTop: $('#notas').offset().top - 60
+			}, 1000);
+			resizeAllGridItems();
+		});
+
+		$('a.filter-temas').click(function (e) {
+			var selectSize = $(this).data('temas');
+			temas(selectSize);
 			e.preventDefault();
 			$('html,body').animate({
 				scrollTop: $('#notas').offset().top - 60
