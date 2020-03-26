@@ -81,6 +81,9 @@
 			var selectSize = $(this).text();
 			filter(selectSize);
 			e.preventDefault();
+			$('html,body').animate({
+				scrollTop: $(this).offset().top
+			}, 1000);
 			resizeAllGridItems();
 		});
 		
@@ -88,6 +91,9 @@
 			var selectSize = $(this).text();
 			filter(selectSize);
 			e.preventDefault();
+			$('html,body').animate({
+				scrollTop: $('#notas').offset().top - 60
+			}, 1000);
 			resizeAllGridItems();
 		});
 
