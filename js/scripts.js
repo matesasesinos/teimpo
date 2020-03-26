@@ -33,6 +33,12 @@
 			imagesLoaded( allItems[x], resizeInstance);
 		}
 	});
+	//cargo tweets
+	$(window).load(function(){	
+		setTimeout(function(){
+			feedTweets();
+		}, 500);
+	});
 	//cargamos la nube
 	$(window).load(function () {
 		$('a.tag-cloud-link').attr('href', '#');
@@ -55,43 +61,41 @@
 			if ($("div.grid-item:hidden").length == 0) {
 				$("#coso").fadeOut('slow');
 			}
-			// $('html,body').animate({
-			// 	scrollTop: $(this).offset().top
+			$('html,body').animate({
+				scrollTop: $(this).offset().top
 				
-			// }, 1500);
-			resizeAllGridItems();
+			}, 1500);
+			feedTweets();
 		});
 	});
 	//links tag cloud
+	function filter(e) {
+		var regex = new RegExp('\\b' + e + '\\b');
+		//console.log('test', regex);
+		$('.nota-feed').hide().filter(function () {
+			//console.log($(this).data('filter'), regex.test($(this).data('filter')))
+			return regex.test($(this).data('filter'));
+		}).show();
+		
+	}
 	$(document).ready(function () {
-		//var tag = $('a.tag-cloud-link').data('tag');
 		$('a.tag-cloud-link').click(function (e) {
 			var selectSize = $(this).text();
 			filter(selectSize);
 			e.preventDefault();
-			resizeAllGridItems();
+			feedTweets();
 		});
 		
 		$('a.tag-term').click(function (e) {
 			var selectSize = $(this).text();
 			filter(selectSize);
 			e.preventDefault();
-			resizeAllGridItems();
+			feedTweets();
 		});
-
-		function filter(e) {
-			var regex = new RegExp('\\b' + e + '\\b');
-			//console.log('test', regex);
-			$('.nota-feed').hide().filter(function () {
-				//console.log($(this).data('filter'), regex.test($(this).data('filter')))
-				return regex.test($(this).data('filter'));
-			}).show();
-			
-		}
 
 	});
 	//twitter
-	$(document).ready(function () {
+	function feedTweets() {
 		var tweets = $(".tweet");
 		$(tweets).each(function (t, tweet) {
 			var id = $(this).attr('id');
@@ -107,36 +111,7 @@
 					resizeAllGridItems();
 				});
 		});
-	});
+	}
+		
 	
 }(jQuery));
-
-// function resizeGridItem(item){
-// 	grid = document.getElementsByClassName("notas")[0];
-// 	rowHeight = parseInt(window.getComputedStyle(grid).getPropertyValue('grid-auto-rows'));
-// 	rowGap = parseInt(window.getComputedStyle(grid).getPropertyValue('grid-row-gap'));
-// 	rowSpan = Math.ceil((item.querySelector('.content').getBoundingClientRect().height+rowGap)/(rowHeight+rowGap));
-// 	item.style.gridRowEnd = "span "+rowSpan;
-// }
-
-// function resizeAllGridItems(){
-// 	allItems = document.getElementsByClassName("grid-item");
-// 	for(x=0;x<allItems.length;x++){
-// 	resizeGridItem(allItems[x]);
-// 	}
-// }
-
-// function resizeInstance(instance){
-// 	item = instance.elements[0];
-// 	resizeGridItem(item);
-// }
-
-
-//window.onload = resizeAllGridItems();
-//window.addEventListener("resize", resizeAllGridItems);
-
-
-// allItems = document.getElementsByClassName("grid-item");
-// for(x=0;x<allItems.length;x++){
-// 	imagesLoaded( allItems[x], resizeInstance);
-// }
