@@ -67,8 +67,9 @@ function create_feed_post($post_id)
 add_action('acf/save_post', 'create_feed_post', 20);
 
 // admin
-
-add_action('admin_enqueue_scripts', 'load_admin_styles');
+if(get_current_user_id() !== 1) { //muestro los botones para el usuario ID 1
+	add_action('admin_enqueue_scripts', 'load_admin_styles');
+}
 function load_admin_styles()
 {
 	wp_enqueue_style('admin_css', get_stylesheet_directory_uri() . '/css/admin.css', false, '1.0.0');

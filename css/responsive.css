@@ -48,6 +48,14 @@
     #seamos-socios {
         display: none;
     }
+    div#media_image-3 {
+        text-align: right;
+        width: 100%;
+    }
+    div#custom_html-2 {
+        text-align: left !important;
+        width: 100%;
+    }
 }
 
 @media (max-width:768px) {
