@@ -92,7 +92,7 @@ function tar_remove_menu(){
 	remove_menu_page( 'jetpack' );                    //Jetpack* 
 	remove_menu_page( 'edit.php' );                   //Posts
 	remove_menu_page( 'upload.php' );                 //Media
-	remove_menu_page( 'edit.php?post_type=page' );    //Pages
+	//remove_menu_page( 'edit.php?post_type=page' );    //Pages
 	remove_menu_page( 'edit.php?post_type=acf-field-group' );
 	remove_menu_page( 'edit.php?post_type=project' );
 	remove_menu_page( 'edit-comments.php' );          //Comments
