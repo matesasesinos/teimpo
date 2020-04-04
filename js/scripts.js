@@ -1,5 +1,9 @@
 (function ($) {
 	"use strict";
+	$(document).ready(function(){
+		$( ".logo_container a" ).attr('href', 'https://www.tiempoar.com.ar/');
+
+	});
 	//masorny
 	function resizeGridItem(item) {
 		var grid = $(".notas")[0];
