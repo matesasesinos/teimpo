@@ -97,8 +97,10 @@ function feed_function()
                 $content .= twitter($url);
                 $content .=  '<div class="terms nota-footer"> ';
                 $content .=  '<span class="tags-f">';
-                foreach ($terms as $t) {
-                    $content .=  '<a href="#" class="tag-term" data-tag="' . $t->name . '">' . $t->name . '</a> ';
+                if($terms) {
+                    foreach ($terms as $t) {
+                        $content .=  '<a href="#" class="tag-term" data-tag="' . $t->name . '">' . $t->name . '</a> ';
+                    }
                 }
                 $content .=  '</span>';
                 $content .= '<span class="social-footer">
