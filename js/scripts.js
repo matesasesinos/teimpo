@@ -1,7 +1,7 @@
 (function ($) {
 	"use strict";
 	$(document).ready(function(){
-		$( ".logo_container a" ).attr('href', 'https://www.tiempoar.com.ar/');
+		$( ".logo_container a" ).attr('href', 'https://www.tiempoar.com.ar/?utm_source=ctec&utm_medium=contiempoencasa.com.ar&utm_campaign=articles');
 
 	});
 	//masorny
